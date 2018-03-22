@@ -16,14 +16,19 @@ import java.util.List;
  * @date 2018/3/21  9:55
  */
 
-public abstract class MultipleItemRvAdapter<T> extends BaseQuickAdapter<T,BaseViewHolder>{
+public abstract class MultipleItemRvAdapter<T> extends BaseQuickAdapter<T, BaseViewHolder> {
 
-    private final SparseArray<BaseItemProvider> mItemProviders;
+    private SparseArray<BaseItemProvider> mItemProviders;
     protected ProviderDelegate mProviderDelegate;
 
     public MultipleItemRvAdapter(@Nullable List<T> data) {
         super(data);
+    }
 
+    /**
+     * 用于adapter构造函数完成参数的赋值后调用
+     */
+    public void finishInitialize() {
         mProviderDelegate = new ProviderDelegate();
 
         setMultiTypeDelegate(new MultiTypeDelegate<T>() {
@@ -44,7 +49,7 @@ public abstract class MultipleItemRvAdapter<T> extends BaseQuickAdapter<T,BaseVi
             provider.mData = mData;
 
             ItemProviderTag tag = provider.getClass().getAnnotation(ItemProviderTag.class);
-            getMultiTypeDelegate().registerItemType(key,tag.layout());
+            getMultiTypeDelegate().registerItemType(key, tag.layout());
         }
     }
 
@@ -60,9 +65,9 @@ public abstract class MultipleItemRvAdapter<T> extends BaseQuickAdapter<T,BaseVi
         provider.mContext = helper.itemView.getContext();
 
         int position = helper.getLayoutPosition() - getHeaderLayoutCount();
-        provider.convert(helper,item,position);
+        provider.convert(helper, item, position);
 
-        bindClick(helper,item,position,provider);
+        bindClick(helper, item, position, provider);
     }
 
     private void bindClick(final BaseViewHolder helper, final T item, final int position, final BaseItemProvider provider) {
@@ -71,14 +76,14 @@ public abstract class MultipleItemRvAdapter<T> extends BaseQuickAdapter<T,BaseVi
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                provider.onClick(helper,item,position);
+                provider.onClick(helper, item, position);
             }
         });
 
         itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                return provider.onLongClick(helper,item,position);
+                return provider.onLongClick(helper, item, position);
             }
         });
     }
