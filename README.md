@@ -62,6 +62,15 @@
 
 &emsp;&emsp;当子条目有许多种的时候，convert()中的逻辑将会很多，不便于项目的维护，故而封装了MultipleItemRvAdapter，将每个条目的逻辑处理都交给创建的ItemProvider来处理，这样可以在对应条目的ItemProvider写相应的逻辑，方便维护。
 
+例子，我之前做过的[精仿今日头条](https://github.com/chaychan/TouTiao),新闻列表中有好几种布局： 
+
+![](https://raw.githubusercontent.com/chaychan/TouTiaoPics/master/screenshot/home.jpg)  
+
+
+# Apk下载地址
+
+[[点击下载体验](https://raw.githubusercontent.com/chaychan/TouTiao/master/apk/news.apk)]
+
 #### 如何使用MultipleItemRvAdapter
 
 一、创建对应条目的ItemProvider，继承BaseItemProvider，注解ItemProviderTag中填写对应的viewType的值（建议在对应的adapter中定义常量，每种条目的viewType必须唯一）, layout指定对应条目的布局id。
@@ -224,7 +233,7 @@ ItemProvider的convert()方法中用于处理相应的业务逻辑，onClick()�
 打开app的module中的build.gradle，在dependencies{}中，添加依赖，如下：
 
     dependencies {
-	        compile 'com.github.chaychan:MultipleItemRvAdapter:1.0.1' //建议使用最新版本
+	        compile 'com.github.chaychan:MultipleItemRvAdapter:1.0.2' //建议使用最新版本
 	}
 
 
