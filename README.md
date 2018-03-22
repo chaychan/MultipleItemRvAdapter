@@ -152,6 +152,13 @@ ItemProvider的convert()方法中用于处理相应的业务逻辑，onClick()�
 	
 	    public MessageListAdapter(@Nullable List<Message> data) {
 	        super(data);
+
+	  		//构造函数若有传参可以在调用finishInitialize()之前进行赋值，赋值给全局变量
+	        //这样getViewType()和registerItemProvider()方法中可以获取到传过来的值
+	        //getViewType()中可能因为某些业务逻辑，需要将某个值传递过来进行判断，返回对应的viewType
+	        //registerItemProvider()中可以将值传递给ItemProvider
+	        
+			finishInitialize();
 	    }
 	
 	    @Override
