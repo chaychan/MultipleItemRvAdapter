@@ -158,7 +158,7 @@ ItemProvider的convert()方法中用于处理相应的业务逻辑，onClick()�
 	        //getViewType()中可能因为某些业务逻辑，需要将某个值传递过来进行判断，返回对应的viewType
 	        //registerItemProvider()中可以将值传递给ItemProvider
 	        
-			finishInitialize();
+			finishInitialize();//调用该方法告知MultipleItemRvAdapter1️已初始化完构造函数参数的传递
 	    }
 	
 	    @Override
@@ -224,7 +224,7 @@ ItemProvider的convert()方法中用于处理相应的业务逻辑，onClick()�
 打开app的module中的build.gradle，在dependencies{}中，添加依赖，如下：
 
     dependencies {
-	        compile 'com.github.chaychan:MultipleItemRvAdapter:1.0.0' //建议使用最新版本
+	        compile 'com.github.chaychan:MultipleItemRvAdapter:1.0.1' //建议使用最新版本
 	}
 
 
