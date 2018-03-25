@@ -15,7 +15,7 @@ public class ProviderDelegate {
     public void registerProvider(BaseItemProvider provider){
         ItemProviderTag tag = provider.getClass().getAnnotation(ItemProviderTag.class);
         if (tag == null){
-            throw new RuntimeException("ItemProviderTag not def layout");
+            throw new RuntimeException("Can not find the annotation: 'ItemProviderTag'");
         }
 
         int viewType = tag.viewType();

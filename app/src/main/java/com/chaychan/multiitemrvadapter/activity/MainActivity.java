@@ -5,11 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.chaychan.multiitemrvadapter.R;
+import com.chaychan.multiitemrvadapter.adapter.MessageListAdapter;
 import com.chaychan.multiitemrvadapter.model.ImageMessage;
 import com.chaychan.multiitemrvadapter.model.Message;
-import com.chaychan.multiitemrvadapter.R;
 import com.chaychan.multiitemrvadapter.model.TextMessage;
-import com.chaychan.multiitemrvadapter.adapter.MessageListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         mMessages.add(new TextMessage("嗯嗯，今天天气真不错！"));
         mMessages.add(new ImageMessage(imgUrl2));
 
-        mRvMessages.setAdapter(new MessageListAdapter(mMessages));
+        MessageListAdapter adapter = new MessageListAdapter(mMessages);
+        mRvMessages.setAdapter(adapter);
     }
 }
