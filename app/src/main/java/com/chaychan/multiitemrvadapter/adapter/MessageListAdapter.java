@@ -24,10 +24,17 @@ public class MessageListAdapter extends MultipleItemRvAdapter<Message> {
 
     public MessageListAdapter(@Nullable List<Message> data) {
         super(data);
-        //构造函数若有传参可以在调用finishInitialize()之前进行赋值，赋值给全局变量
+
+        //构造函数若有传其他参数可以在调用finishInitialize()之前进行赋值，赋值给全局变量
         //这样getViewType()和registerItemProvider()方法中可以获取到传过来的值
         //getViewType()中可能因为某些业务逻辑，需要将某个值传递过来进行判断，返回对应的viewType
         //registerItemProvider()中可以将值传递给ItemProvider
+
+        //If the constructor has other parameters, it needs to be assigned before calling finishInitialize() and assigned to the global variable
+        // This getViewType () and registerItemProvider () method can get the value passed over
+        // getViewType () may be due to some business logic, you need to pass a value to judge, return the corresponding viewType
+        //RegisterItemProvider() can pass value to ItemProvider
+
         finishInitialize();
     }
 
