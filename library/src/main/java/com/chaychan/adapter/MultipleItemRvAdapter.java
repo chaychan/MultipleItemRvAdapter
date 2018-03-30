@@ -71,20 +71,34 @@ public abstract class MultipleItemRvAdapter<T> extends BaseQuickAdapter<T, BaseV
     }
 
     private void bindClick(final BaseViewHolder helper, final T item, final int position, final BaseItemProvider provider) {
+        OnItemClickListener clickListener = getOnItemClickListener();
+        OnItemLongClickListener longClickListener = getOnItemLongClickListener();
+
+        if (clickListener != null && longClickListener != null){
+            //如果已经设置了子条目点击监听和子条目长按监听
+            return;
+        }
+
         View itemView = helper.itemView;
 
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                provider.onClick(helper, item, position);
-            }
-        });
+        if (clickListener == null){
+            //如果没有设置点击监听，则回调给itemProvider
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    provider.onClick(helper, item, position);
+                }
+            });
+        }
 
-        itemView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                return provider.onLongClick(helper, item, position);
-            }
-        });
+        if (longClickListener == null){
+            //如果没有设置长按监听，则回调给itemProvider
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    return provider.onLongClick(helper, item, position);
+                }
+            });
+        }
     }
 }
