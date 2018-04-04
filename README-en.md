@@ -158,7 +158,7 @@ Open the build.gradle in the app's module, add dependencies in dependencies {} a
 
 The latest version can be viewed
 
-[https://github.com/chaychan/BottomBarLayout/releases](https://github.com/chaychan/MultipleItemRvAdapter/releases)
+[https://github.com/chaychan/MultipleItemRvAdapter/releases](https://github.com/chaychan/MultipleItemRvAdapter/releases)
 
 
 #### Support and encouragement
