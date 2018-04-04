@@ -1,3 +1,5 @@
+[英文(English)](https://github.com/chaychan/MultipleItemRvAdapter/blob/master/README-en.md)
+
 #### 项目介绍
 
 &emsp;&emsp;该项目是在[BaseRecyclerViewAdapterHelper](https://github.com/CymChad/BaseRecyclerViewAdapterHelper "BaseRecyclerViewAdapterHelper")基础上对BaseQuickAdapter进行封装，在包含**BaseRecyclerViewAdapterHelper**所有功能的基础上，对其中的多条目布局处理逻辑进行了封装，将adapter中每种子条目单独出对应的ItemProvider，这样方便相应条目做相关的业务逻辑。
