@@ -2,6 +2,7 @@ package com.chaychan.multiitemrvadapter.adapter;
 
 import android.support.annotation.Nullable;
 
+import com.chad.library.adapter.base.BaseViewHolder;
 import com.chaychan.adapter.MultipleItemRvAdapter;
 import com.chaychan.multiitemrvadapter.adapter.provider.ImageMessageItemProvider;
 import com.chaychan.multiitemrvadapter.adapter.provider.TextMessageItemProvider;
@@ -17,7 +18,7 @@ import java.util.List;
  * @date 2018/3/21  14:40
  */
 
-public class MessageListAdapter extends MultipleItemRvAdapter<Message> {
+public class MessageListAdapter extends MultipleItemRvAdapter<Message,BaseViewHolder> {
 
     public static final int TYPE_TEXT = 0;
     public static final int TYPE_IMG = 1;

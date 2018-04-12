@@ -6,21 +6,26 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chaychan.adapter.BaseItemProvider;
-import com.chaychan.adapter.ItemProviderTag;
-import com.chaychan.multiitemrvadapter.model.ImageMessage;
 import com.chaychan.multiitemrvadapter.R;
 import com.chaychan.multiitemrvadapter.adapter.MessageListAdapter;
+import com.chaychan.multiitemrvadapter.model.ImageMessage;
 
 /**
  * @author ChayChan
  * @description 图片消息条目的provider
  * @date 2018/3/21  14:43
  */
-@ItemProviderTag(
-        viewType = MessageListAdapter.TYPE_IMG,
-        layout = R.layout.item_image_message
-)
-public class ImageMessageItemProvider extends BaseItemProvider<ImageMessage> {
+public class ImageMessageItemProvider extends BaseItemProvider<ImageMessage,BaseViewHolder> {
+
+    @Override
+    public int viewType() {
+        return MessageListAdapter.TYPE_IMG;
+    }
+
+    @Override
+    public int layout() {
+        return R.layout.item_image_message;
+    }
 
     @Override
     public void convert(BaseViewHolder helper, ImageMessage data, int position) {

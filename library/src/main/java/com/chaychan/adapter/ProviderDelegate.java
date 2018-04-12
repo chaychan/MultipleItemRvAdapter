@@ -3,6 +3,7 @@ package com.chaychan.adapter;
 import android.util.SparseArray;
 
 /**
+ * https://github.com/chaychan
  * @author ChayChan
  * @date 2018/3/21  11:04
  */
@@ -12,12 +13,12 @@ public class ProviderDelegate {
     private SparseArray<BaseItemProvider> mItemProviders = new SparseArray<>();
 
     public void registerProvider(BaseItemProvider provider){
-        ItemProviderTag tag = provider.getClass().getAnnotation(ItemProviderTag.class);
-        if (tag == null){
-            throw new RuntimeException("Can not find the annotation: 'ItemProviderTag'");
+        if (provider == null){
+            throw new ItemProviderException("ItemProvider can not be null");
         }
 
-        int viewType = tag.viewType();
+        int viewType = provider.viewType();
+
         if (mItemProviders.get(viewType) == null){
             mItemProviders.put(viewType,provider);
         }

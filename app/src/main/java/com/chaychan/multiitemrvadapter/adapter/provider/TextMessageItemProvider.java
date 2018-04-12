@@ -4,21 +4,26 @@ import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chaychan.adapter.BaseItemProvider;
-import com.chaychan.adapter.ItemProviderTag;
 import com.chaychan.multiitemrvadapter.R;
-import com.chaychan.multiitemrvadapter.model.TextMessage;
 import com.chaychan.multiitemrvadapter.adapter.MessageListAdapter;
+import com.chaychan.multiitemrvadapter.model.TextMessage;
 
 /**
  * @author ChayChan
  * @description 文本消息条目的provider
  * @date 2018/3/21  14:43
  */
-@ItemProviderTag(
-        viewType = MessageListAdapter.TYPE_TEXT,
-        layout = R.layout.item_text_message
-)
-public class TextMessageItemProvider extends BaseItemProvider<TextMessage> {
+public class TextMessageItemProvider extends BaseItemProvider<TextMessage,BaseViewHolder> {
+
+    @Override
+    public int viewType() {
+        return MessageListAdapter.TYPE_TEXT;
+    }
+
+    @Override
+    public int layout() {
+        return R.layout.item_text_message;
+    }
 
     @Override
     public void convert(BaseViewHolder helper, TextMessage data, int position) {
